@@ -7,6 +7,7 @@ You can do as you please with this software, but I would appreciate if you'd let
 
 ### How to deploy and use
 * Create an App Engine account
+* Add your app's name to ```index.yaml```
 * Create a Twilio account. Configure it to forward SMS messages to your base App Engine URL as POST
 * Create a Full Contact account and copy your API key to ```main.py```
 * Configure the other constant variables per your preference
