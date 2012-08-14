@@ -1,0 +1,72 @@
+<html>
+    <body>
+
+    {% if photos %}
+    {% for photo in photos %}
+        <img src='{{ photo.url }}'/><br/>
+    {% endfor %}
+    {% endif %}
+
+    {% if contactInfo %}
+        <h1>Contact Info</h1>
+
+        {% if contactInfo.familyName %}
+        Family Name: {{ contactInfo.familyName }}<br/>
+        {% endif %}
+
+        {% if contactInfo.givenName %}
+        Given Name: {{ contactInfo.givenName }}<br/>
+        {% endif %}
+
+        {% if contactInfo.fullName %}
+        Full Name: {{ contactInfo.fullName }}<br/>
+        {% endif %}
+
+        {% if contactInfo.websites %}
+            <h2>Websites</h2>
+            {% for site in contactInfo.websites %}
+                {{ site.url }}<br/>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    {% if demographics %}
+        <h1>Demographics</h1>
+
+        {% if demographics.age %}
+        Age: {{ demographics.age }}<br/>
+        {% endif %}
+
+        {% if demographics.locationGeneral %}
+        Location: {{ demographics.locationGeneral }}<br/>
+        {% endif %}
+
+        {% if demographics.gender %}
+        Gender: {{ demographics.gender }}<br/>
+        {% endif %}
+
+        {% if demographics.ageRange %}
+        Age Range: {{ demographics.ageRange }}<br/>
+        {% endif %}
+    {% endif %}
+
+    {% if socialProfiles %}
+        <h1>Social Profiles</h1>
+
+        {% for profile in socialProfiles %}
+            <h2>{{ profile.typeName }}</h2>
+            {% if profile.url and profile.username %}
+                Name: <a href="{{ profile.url }}">{{ profile.username }}</a><br/>
+            {% elif profile.username %}
+                Name: {{ profile.username }}<br/>
+            {% elif profile.url %}
+                {{ profile.url }}<br/>
+            {% endif %}
+
+            {% if profile.bio %}
+                Bio: {{ profile.bio }}<br/>
+            {% endif %}
+        {% endfor %}
+     {% endif %}
+    </body>
+</html>
